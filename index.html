@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Aakriti ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- High-Performance Canvas for Infinite Hearts -->
+    <canvas id="heart-canvas"></canvas>
+
+    <!-- Tap Burst Container -->
+    <div id="burst-container"></div>
+
+    <!-- Start Screen Gateway -->
+    <div id="start-screen">
+        <div class="start-card">
+            <div class="glow-avatar">
+                <span class="sparkle-icon">💖</span>
+            </div>
+            <h1>Aakriti</h1>
+            <p>A little cinematic story created just for you...</p>
+            <button id="start-btn" class="glow-button">
+                <span>Tap to Begin ❤️</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Audio Control -->
+    <div id="audio-control" class="hidden">
+        <button id="music-toggle" aria-label="Toggle Music">
+            <span class="music-icon">🎵</span>
+            <span class="music-waves">
+                <span></span><span></span><span></span>
+            </span>
+        </button>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bg-music" src="music.mp3" loop preload="auto"></audio>
+
+    <main id="main-content">
+
+        <!-- Hero Section -->
+        <section id="hero" class="observe-me">
+            <div class="badge-pill">Made for Aakriti ✨</div>
+            <h1 class="hero-title">Timro Sundar Muskuraahat</h1>
+            <p class="hero-sub">Just you. Pure, radiant, and unforgettable.</p>
+            
+            <div class="scroll-cue">
+                <span>Scroll softly</span>
+                <div class="scroll-dot"></div>
+            </div>
+        </section>
+
+        <!-- Photo Journey (15 Photos) -->
+        <section id="photo-journey" class="observe-me">
+            <div class="section-header">
+                <span class="section-tag">A Glance at Perfection</span>
+                <h2>Timro Sundar Palharu</h2>
+            </div>
+
+            <div class="photo-stage">
+                <div class="photo-card-wrapper" id="swipe-area">
+                    <div class="photo-card">
+                        <img id="journey-img" src="image1.jpg" alt="Aakriti photo" loading="eager">
+                        <div class="photo-vignette"></div>
+                        <div class="photo-caption-box">
+                            <p id="photo-caption">Herda herdai maya basyo...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls & Progress -->
+                <div class="photo-nav">
+                    <button id="prev-btn" class="nav-btn" aria-label="Previous Photo">❮</button>
+                    
+                    <div class="progress-wrap">
+                        <span id="photo-counter">01 / 15</span>
+                        <div class="progress-bar-bg">
+                            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                        </div>
+                    </div>
+
+                    <button id="next-btn" class="nav-btn" aria-label="Next Photo">❯</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Little Things I Remember -->
+        <section id="little-things" class="observe-me">
+            <div class="section-header">
+                <span class="section-tag">Sano Sano Kura</span>
+                <h2>Little Things I Remember</h2>
+            </div>
+
+            <div class="things-grid">
+                <div class="thing-card" data-note="Pink is your color! Perfectly aesthetic, just like you. 🌸">
+                    <div class="thing-icon-wrap pink-glow">🌸</div>
+                    <h3>Pink</h3>
+                </div>
+                <div class="thing-card" data-note="Hot, cheesy, and delicious — pizza makes every day better! 🍕">
+                    <div class="thing-icon-wrap pizza-glow">🍕</div>
+                    <h3>Pizza</h3>
+                </div>
+                <div class="thing-card" data-note="Sweet, calm, and simple — vanilla matches your vibe. 🍦">
+                    <div class="thing-icon-wrap vanilla-glow">🍦</div>
+                    <h3>Vanilla</h3>
+                </div>
+                <div class="thing-card" id="card-music" data-note="Music that makes every single thought of you feel cinematic. 🎵">
+                    <div class="thing-icon-wrap music-glow">🎵</div>
+                    <h3>Music</h3>
+                </div>
+            </div>
+
+            <!-- Dynamic Pop note -->
+            <div id="thing-note-popup" class="note-popup hidden">
+                <p id="note-popup-text"></p>
+            </div>
+        </section>
+
+        <!-- Interactive Playroom -->
+        <section id="playroom">
+            <div class="interaction-card observe-me">
+                <div class="card-badge">Playful Moment</div>
+                <h2>Bubu, khana dinxau? 🥺</h2>
+                <div class="button-row">
+                    <button id="btn-yes" class="play-btn yes-btn">Yes Of Course! ❤️</button>
+                    <button id="btn-no" class="play-btn no-btn">No 😜</button>
+                </div>
+                <p id="food-response" class="response-text"></p>
+            </div>
+
+            <div class="interaction-card observe-me delay-1">
+                <div class="card-badge">Love Meter</div>
+                <h2>Kati maya garxau malai?</h2>
+                <div class="input-wrap">
+                    <input type="text" id="love-input" placeholder="Type here..." autocomplete="off" maxlength="100">
+                </div>
+                <div class="meter-track">
+                    <div id="meter-fill" class="meter-fill"></div>
+                </div>
+                <div id="love-reaction" class="reaction-box">
+                    <span id="reaction-emoji">💭</span>
+                    <p id="reaction-text">Type something sweet...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secret Envelope Section -->
+        <section id="envelope-section" class="observe-me">
+            <div class="section-header">
+                <span class="section-tag">Confession</span>
+                <h2>Mero Mutu Ko Kura</h2>
+            </div>
+
+            <div class="envelope-wrapper" id="envelope">
+                <div class="envelope-back"></div>
+                <div class="letter">
+                    <div class="letter-content">
+                        <h3>Dear Aakriti,</h3>
+                        <p>Timi mero jindagi ko sab bhanda sundar part hau. Timro eutai muskuraahat le mero sabai thakai metaidincha. Always stay happy and keep shining bright!</p>
+                        <p class="letter-sign">~ Always Yours ❤️</p>
+                    </div>
+                </div>
+                <div class="envelope-front"></div>
+                <div class="envelope-top"></div>
+                <div class="wax-seal">💌</div>
+            </div>
+            <p class="envelope-hint">Tap the wax seal to open</p>
+        </section>
+
+        <!-- Infinite Beautiful Finale -->
+        <div class="finale-spacer"></div>
+        <section id="finale">
+            <div class="finale-container">
+                <div class="infinite-centerpiece">
+                    <div class="infinity-symbol">∞</div>
+                    <div class="beauty-text">Infinite Maya</div>
+                    <p class="eternal-sub">Forever & Always, My Princess ❤️</p>
+                    
+                    <div class="portrait-frame final-portrait">
+                        <img id="final-img" src="image15.jpg" alt="Aakriti Princess">
+                        <div class="portrait-halo"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
