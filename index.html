@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>For My Princess ❤️</title>
+    
+    <!-- PERFORMANCE: Preload critical assets -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CSS Particles Background -->
+    <div class="particles-container" id="particles" aria-hidden="true"></div>
+
+    <!-- AUDIO -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- SECTION 1: CINEMATIC OPENING -->
+    <section id="opening" class="fullscreen-section">
+        <div class="opening-content">
+            <h1 class="cinematic-text reveal-text">Hey, My Princess... <span class="heart-pulse" aria-hidden="true">❤️</span></h1>
+            <p class="subtitle reveal-text delay-1">Aaja timro lagi euta sano surprise xa...</p>
+            <button id="start-btn" class="glass-btn reveal-text delay-2" aria-label="Start our story">Start Our Story ❤️</button>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT (Hidden until start) -->
+    <main id="main-content" class="hidden">
+        
+        <!-- FLOATING MUSIC PLAYER -->
+        <div class="music-player glass-card" role="region" aria-label="Music Player">
+            <div class="track-info">
+                <i class="fas fa-compact-disc spin-icon" aria-hidden="true"></i>
+                <span>Our Song ❤️</span>
+            </div>
+            <div class="controls">
+                <button id="play-pause-btn" aria-label="Play or pause music"><i class="fas fa-pause" aria-hidden="true"></i></button>
+            </div>
+            <div class="visualizer" aria-hidden="true">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: PERSONAL INTRODUCTION -->
+        <section id="intro" class="container reveal">
+            <h2 class="section-title">Welcome, mero Princess 👑</h2>
+            <div class="glass-card text-card">
+                <p>Yo website timro lagi matra ho.</p>
+                <p>Sano xa hola, tara yesma timro lagi dherai maya, dherai memories ra dherai feelings rakheko xu.</p>
+                <p>Jati herxu, teti nai maya lagxa Kali... ❤️</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: HER FAVORITE THINGS -->
+        <section id="favorites" class="container reveal">
+            <h2 class="section-title">Timro Favorite Haru ❤️</h2>
+            <div class="fav-grid">
+                <div class="fav-card glass-card">
+                    <i class="fas fa-palette fav-icon" aria-hidden="true"></i>
+                    <h3>Pink</h3>
+                    <p>Timro sabai vanda manparne color, thik timi jastai sweet.</p>
+                </div>
+                <div class="fav-card glass-card">
+                    <i class="fas fa-pizza-slice fav-icon" aria-hidden="true"></i>
+                    <h3>Pizza</h3>
+                    <p>Sabaibhanda mitho khana, sangai basera khanu xa hai?</p>
+                </div>
+                <div class="fav-card glass-card">
+                    <i class="fas fa-glass-water fav-icon" aria-hidden="true"></i>
+                    <h3>Milk</h3>
+                    <p>Daily chahine, mero Bubu ko health ko lagi.</p>
+                </div>
+                <div class="fav-card glass-card">
+                    <i class="fas fa-ice-cream fav-icon" aria-hidden="true"></i>
+                    <h3>Vanilla</h3>
+                    <p>Best ice cream, just for you.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PHOTO EXPERIENCE (Images 1-6 loaded via JS) -->
+        <section id="gallery" class="container reveal">
+            <h2 class="section-title">Hamro Memories ✨</h2>
+            <div class="cinematic-gallery glass-card">
+                <div class="gallery-slider" id="gallery-slider">
+                    <!-- Images 1-6 injected via JS for performance -->
+                </div>
+                <div class="gallery-controls">
+                    <button id="prev-photo" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                    <span id="photo-counter" class="photo-counter" aria-live="polite">01 / 06</span>
+                    <button id="next-photo" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+                </div>
+                <p id="photo-caption" class="photo-caption" aria-live="polite">Timi first time mero agadi aunda ko moment...</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: SECRET ENVELOPE -->
+        <section id="secret-message" class="container reveal">
+            <h2 class="section-title">For My Princess 💌</h2>
+            <div class="envelope-container" id="envelope" role="button" tabindex="0" aria-label="Open secret message">
+                <div class="envelope-wrapper">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <div class="envelope-heart"><i class="fas fa-heart" aria-hidden="true"></i></div>
+                    </div>
+                    <div class="letter glass-card">
+                        <h3>Mero pyaro Bubu,</h3>
+                        <p>Timi jasto special kohi xaina. Timro smile le mero pura din banauxa, Kali.</p>
+                        <p>I feel so lucky to have my Princess in my life. I Love You! ❤️</p>
+                    </div>
+                </div>
+                <p class="tap-hint" id="envelope-hint">Tap to open</p>
+            </div>
+        </section>
+
+        <!-- SECTION 6 & 7: INTERACTIVE QUESTIONS -->
+        <section id="questions" class="container reveal">
+            <div class="glass-card question-card">
+                <h3>Bubu, khana dinxau? 🥺</h3>
+                <div class="btn-group" id="btn-group-food">
+                    <button class="glass-btn btn-yes" id="food-yes">Yes ❤️</button>
+                    <button class="glass-btn btn-no" id="food-no">No 😭</button>
+                </div>
+                <p id="food-reaction" class="reaction-text hidden" aria-live="polite"></p>
+            </div>
+
+            <div class="glass-card question-card mt-4">
+                <h3>Kaile photo khichera pathaune hum? 👀</h3>
+                <p>Xito pthaunus naaa ❤️</p>
+                <button class="glass-btn mt-2" id="photo-promise">Pathauxu pakka! ✨</button>
+                <p id="photo-reaction" class="reaction-text hidden" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- SECTION 8: LOVE QUESTION -->
+        <section id="love-meter" class="container reveal">
+            <div class="glass-card">
+                <h2 class="section-title">Kati maya garxau malai? ❤️</h2>
+                <input type="text" id="love-input" class="glass-input" placeholder="Type here (e.g. Dherai na dherai)" aria-label="How much do you love me?">
+                <button class="glass-btn w-100" id="love-submit">Answer Lock Gara ❤️</button>
+                
+                <div class="meter-container hidden" id="meter-result">
+                    <p class="meter-text">Calculating your love... <span id="love-percent">0</span>%</p>
+                    <div class="meter-bar-bg" aria-hidden="true">
+                        <div class="meter-bar-fill" id="love-fill"></div>
+                    </div>
+                    <p class="meter-msg" id="love-msg" aria-live="polite"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 9: HOW WELL DO YOU KNOW ME? (QUIZ) -->
+        <section id="quiz" class="container reveal">
+            <h2 class="section-title">Princess Quiz 👑</h2>
+            <div class="glass-card quiz-container" id="quiz-box">
+                <h3 id="quiz-question" aria-live="polite">Timro favourite ice cream?</h3>
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options JS injected -->
+                </div>
+                <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <!-- SECTION 10: REASONS -->
+        <section id="reasons" class="container reveal">
+            <h2 class="section-title">Why I Love My Princess</h2>
+            <p class="tap-hint mb-3">Tap cards to reveal ❤️</p>
+            <div class="reasons-grid">
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 1">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timro smile ekdam special xa.</p></div>
+                    </div>
+                </div>
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 2">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timro presence le normal din lai pani ramailo banaidincha.</p></div>
+                    </div>
+                </div>
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 3">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timro lagi 'Princess' bhanera bolaunda nai different feeling aauxa.</p></div>
+                    </div>
+                </div>
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 4">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timi ekdam caring xau Bubu.</p></div>
+                    </div>
+                </div>
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 5">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timro voice sunda aafai shanta hunxa man.</p></div>
+                    </div>
+                </div>
+                <div class="reason-card glass-card" role="button" tabindex="0" aria-label="Reason 6">
+                    <div class="card-inner">
+                        <div class="card-front"><i class="fas fa-question" aria-hidden="true"></i></div>
+                        <div class="card-back"><p>Timi risauda pani cute dekhxau Kali.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 11: MEMORY TIMELINE (Images 7-14) -->
+        <section id="timeline" class="container reveal">
+            <h2 class="section-title">Our Journey ✨</h2>
+            <div class="timeline-wrapper">
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image7.jpg" alt="A beautiful memory of us" loading="lazy">
+                        <p>Ek photo, dherai memories...</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image8.jpg" alt="A memory highlighting her eyes" loading="lazy">
+                        <p>Timro aakha ko chamak...</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image9.jpg" alt="A memory of her smiling" loading="lazy">
+                        <p>Arko smile jasle malai flat parxa...</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image10.jpg" alt="A memory of her glowing" loading="lazy">
+                        <p>Ra feri timi, always glowing.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image11.jpg" alt="A perfect memory" loading="lazy">
+                        <p>Perfect in every single way.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image12.jpg" alt="A cute memory of Bubu" loading="lazy">
+                        <p>Mero pyaro Bubu ko cuteness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image13.jpg" alt="A memory that brings a smile" loading="lazy">
+                        <p>Timro yaad le matra pani smile aauxa.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content glass-card">
+                        <img src="image14.jpg" alt="A captivating memory" loading="lazy">
+                        <p>Can't take my eyes off you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 12: HIDDEN SURPRISE -->
+        <section id="surprise" class="container reveal text-center">
+            <h3 class="mb-2">Wait... ajhai euta surprise baki xa 👀</h3>
+            <button class="glass-btn mt-3" id="reveal-final">Open It ❤️</button>
+        </section>
+
+        <!-- SECTION 13: FINAL LETTER & PHOTO (Image 15) -->
+        <section id="final-section" class="container hidden">
+            <div class="glass-card text-card final-letter">
+                <h2 class="section-title">I Love You, My Princess ❤️</h2>
+                <p>Aakriti, mero pyaro Princess.</p>
+                <p>Yo sano website le mero sabai feelings ta express garna sakdaina, tara timi mero lagi kati special xau bhanera dekhauna matra khojeko hu.</p>
+                <p>Kali, timro smile mero din ko sabai bhanda ramro part ho. Bubu, timi sanga ko haraik moment mero lagi precious xa.</p>
+                <p>Timi sadhai yesari nai hasirakhu. I promise to always be there for you.</p>
+                
+                <div class="final-photo-container mt-4">
+                    <img src="image15.jpg" alt="Always My Princess, a final beautiful photo" loading="lazy" class="final-img">
+                    <h3 class="mt-3">Always My Princess 👑❤️</h3>
+                    <h2 class="heart-pulse mt-2">I Love You.</h2>
+                </div>
+                
+                <button class="glass-btn mt-4" id="replay-btn" aria-label="Replay our story"><i class="fas fa-redo" aria-hidden="true"></i> Replay Our Story</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
